@@ -1,0 +1,9 @@
+DEEPSORT:
+  REID_CKPT: "deep_sort/deep_sort/deep/checkpoint/ckpt.t7"  # 特征提取模型权重的路径
+  MAX_DIST: 0.2                                             # 级联匹配的最大余弦距离阈值，如果大于该阈值，则忽略
+  MIN_CONFIDENCE: 0.3                                       # 检测的置信度阈值
+  NMS_MAX_OVERLAP: 0.5                                      # 检测非极大抑制的阈值
+  MAX_IOU_DISTANCE: 0.7                                     # 匈牙利算法的 IOU 阈值
+  MAX_AGE: 70                                               # 最大寿命，也就是经过 MAX_AGE 帧没有追踪到该物体，就将该轨迹变为删除态
+  N_INIT: 3                                                 # 最高击中次数，如果轨迹击中该次数，就由不确定态转为确定态
+  NN_BUDGET: 100                                            # 最大保存特征帧数(用于级联匹配中特征余弦距离比对)，如果超过该帧数，将进行滚动保存
